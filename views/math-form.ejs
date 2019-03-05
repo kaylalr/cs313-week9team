@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math Form</title>
+</head>
+<body>
+    <form action="/math">
+        <input type="number" name="firstNumber">
+        <select name="operation">
+            <option value="plus">+</option>
+            <option value="minus">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="number" name="secondNumber">
+        <button type="submit">Submit</button>
+        <button type="button" onclick="getJSON()">Get JSON</button>
+    </form>
+    <div id="showJSON">
+
+    </div>
+    <script>
+        let first = document.getElementsByName("firstNumber");
+        let second = document.getElementsByName("secondNumber");
+        let operation = document.getElementsByName("operation");
+        const params = {firstNumber: first, secondNumber: second, operation: operation}
+        function getJSON() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("showJSON").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "/math_service?firstNumber="+first+"&operation="+operation+"&secondNumber="+second, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
