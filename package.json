@@ -1,0 +1,14 @@
+{
+  "name": "team-activity",
+  "version": "1.0.0",
+  "description": "week 9 team activity",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
